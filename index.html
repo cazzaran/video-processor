@@ -1,34 +1,32 @@
 <html>
+  <head>
+    <script src="/assets/ffmpeg/package/dist/umd/ffmpeg.js"></script>
+    <script src="/assets/util/package/dist/umd/index.js"></script>
+    <script src="/assets/scripts.js"></script>
+    <link href="/assets/styles.css" rel="stylesheet">
+  </head>
 
-<head>
-  <script src="/assets/ffmpeg/package/dist/umd/ffmpeg.js"></script>
-  <script src="/assets/util/package/dist/umd/index.js"></script>
-  <script src="/assets/scripts.js"></script>
-  <link href="/assets/styles.css" rel="stylesheet">
-</head>
-
-<body>
-  <div id="vp-app">
-    <form id="upload-pane" data-status="upload" aria-hidden="false">
-      <label for="bitrate">
-        <p>Specify Bitrate</p>
-      </label>
-      <input id="bitrate" name="bitrate" type="number" value="3600" />
-      <label for="upload">
-        <p>Click to upload a video</p>
-      </label>
-      <input id="upload" type="file" name="upload">
-      <p>
-        <button id="run" disabled>Run!</button>
-      </p>
-    </form>
-    <div id="preview-pane" aria-hidden="true">
-      Preview
+  <body>
+    <div id="vp-app">
+      <form id="upload-pane" data-status="upload" aria-hidden="false">
+        <label for="bitrate">
+          <p>Specify Bitrate</p>
+        </label>
+        <input id="bitrate" name="bitrate" type="number" value="3600" />
+        <label for="upload">
+          <p>Click to upload a video</p>
+        </label>
+        <input id="upload" type="file" name="upload">
+        <p>
+          <button id="run" disabled>Run!</button>
+        </p>
+      </form>
+      <div id="preview-pane" aria-hidden="true">
+        Preview
+      </div>
+      <dialog>
+        <div class="progress"></div>
+      </dialog>
     </div>
-    <dialog>
-      <div class="progress"></div>
-    </dialog>
-  </div>
 </body>
-
 </html>
