@@ -1,0 +1,51 @@
+#upload-pane {
+
+}
+
+#preview-pane {
+  display: block;
+}
+
+dialog {
+  width: 50%;
+  height: 50%;
+}
+
+@keyframes progress {
+  from { background-position: 4rem 0; };
+  to { background-position: 0 0; };
+}
+
+dialog .progress {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  background-color: coral;
+  background-image: linear-gradient(45deg,
+    #fff2 25%,
+    transparent 25%,
+    transparent 50%,
+    #fff2 50%,
+    #fff2 75%,
+    transparent 75%,
+    transparent);
+  background-size: 4rem 4rem;
+  animation: progress 3s linear infinite;
+  transition: width 3s linear;
+}
+
+dialog::backdrop {
+  background-image: linear-gradient(
+    lightgray, 
+    darkgray
+  );
+  opacity: 0.75;
+}
+
+*[aria-hidden=true] {
+  display: none;
+}
+
