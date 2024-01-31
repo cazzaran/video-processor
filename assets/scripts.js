@@ -111,8 +111,17 @@ function init() {
         'data-name': name,
       }));
       previewEl.append(videoEl);
-      const downloadButtonEl = createTag('button', {}, 'Download');
-      previewEl.append(downloadButtonEl);
+      const videoSrc = videoEl.querySelector('source').src;
+      const videoResp = await fetch(videoSrc);
+      const videoBlob = await videoResp.blob();
+      const videoURL = URL.createObjectURL(videoBlob);
+      const newFilename = `new-${videoEl.querySelector('source').dataset.name}`;
+      const downloadLinkEl = createTag('a', {
+        id: 'download',
+        href: videoURL,
+        download: newFilename,
+      }, newFilename);
+      previewEl.append(downloadLinkEl);
       
     } else {
       alert('You need to provide a file');

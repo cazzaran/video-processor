@@ -53,6 +53,10 @@ body {
 
 }
 
+button {
+  margin-top: 16px;
+}
+
 #filename {
   text-align: center;
   position: absolute;
@@ -149,6 +153,10 @@ button {
 #preview-pane video {
   position: relative;
   width: 100%;
+}
+
+#download {
+  padding: 16px;
 }
 
 dialog {
