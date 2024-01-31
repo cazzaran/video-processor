@@ -1,0 +1,161 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: Raleway;
+  src: url("/assets/fonts/Raleway-VariableFont_wght.ttf");
+  font-display: swap;
+}
+
+:root {
+  font-family: "Raleway", helvetica, ubuntu, roboto, noto, sans-serif;
+  --background-color: #eee;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s ease-in-out;
+}
+
+.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: opacity 1s ease-in;
+}
+
+#vp-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#upload-pane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#upload-pane {
+
+}
+
+#filename {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+  font-size: 30px;
+}
+
+
+form #upload {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+
+form #dropzone {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  box-shadow: inset 0px 0px 16px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+  background-color: #eee;
+}
+
+form #dropzone.flatten {
+  box-shadow: none;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+form #dropzone label {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: translateY(-50%);
+}
+
+form #bitrate {
+  appearance: none;
+  padding: 12px;
+  border: 0;
+  border-radius: 13px;
+  background-color: white;
+  font-family: "Raleway", helvetica, ubuntu, roboto, noto, sans-serif;
+}
+
+form #run {
+  appearance: none;
+  padding: 12px;
+  border: 0;
+  border-radius: 13px;
+  background-color: white;
+  font-family: "Raleway", helvetica, ubuntu, roboto, noto, sans-serif;
+}
+
+#preview-pane {
+  
+}
+
+dialog {
+  width: 50%;
+  height: 50%;
+}
+
+@keyframes progress {
+  from { background-position: 4rem 0; };
+  to { background-position: 0 0; };
+}
+
+dialog .progress {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  background-color: coral;
+  background-image: linear-gradient(45deg,
+    #fff2 25%,
+    transparent 25%,
+    transparent 50%,
+    #fff2 50%,
+    #fff2 75%,
+    transparent 75%,
+    transparent);
+  background-size: 4rem 4rem;
+  animation: progress 3s linear infinite;
+  transition: width 3s linear;
+}
+
+dialog::backdrop {
+  background-image: linear-gradient(
+    lightgray, 
+    darkgray
+  );
+  opacity: 0.75;
+}
+
+*[aria-hidden=true] {
+  display: none;
+}
