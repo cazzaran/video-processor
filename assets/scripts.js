@@ -60,24 +60,24 @@ function init() {
   
   uploadEl.addEventListener('change', async (e) => {
     uploadEl.setAttribute('disabled', true);
-    uploadEl.setAttribute('aria-hidden', true);
+    
     dropzoneEl.querySelector('label').classList.add('hide');
     const filenameEl = dropzoneEl.querySelector('#filename');
     filenameEl.classList.add('show');
     dropzoneEl.classList.add('flatten');
-    const filename = e.target.files[0].name;
-    filenameEl.innerHTML = filename.split(/(\\|\/)/g).pop();
+    const filename = e.target.files[0].name.split(/(\\|\/)/g).pop();
+    filenameEl.innerHTML = (filename.length > 15) ? `${filename.substring(0, 13)}...` : filename;
   });
 
   runButtonEl.addEventListener('click', async (e) => {
     e.preventDefault();
-    const upload = formEl.querySelector('#upload');
-    if (upload.files && upload.files[0]) {
+    const uploadEl = formEl.querySelector('#upload');
+    if (uploadEl.files && uploadEl.files[0]) {
       dialogEl.showModal();
-      const file = upload.files[0];
+      const file = uploadEl.files[0];
       const bitrate = formEl.querySelector('#bitrate').value;
       const { name, size } = file;
-      const progressBar = dialogEl.querySelector('.progress');
+      const progressBarEl = dialogEl.querySelector('.progress');
       // eslint-disable-next-line no-undef
       const { fetchFile } = FFmpegUtil;
       // eslint-disable-next-line no-undef
@@ -88,10 +88,10 @@ function init() {
       if (ffmpeg === null) {
         ffmpeg = new FFmpeg();
         ffmpeg.on('progress', ({ progress }) => {
-          if (progressBar) progressBar.style.width = `${Math.floor(progress * 100)}%`;
+          if (progressBarEl) progressBarEl.style.width = `${Math.floor(progress * 100)}%`;
         });
         await ffmpeg.load({
-          coreURL: './assets/core/package/dist/umd/ffmpeg-core.js',
+          coreURL: '/video-processor/assets/core/package/dist/umd/ffmpeg-core.js',
         });
       }
       
@@ -105,12 +105,15 @@ function init() {
 
       const params = {};
       params.controls = true;
-      const video = createTag('video', params, createTag('source', {
+      const videoEl = createTag('video', params, createTag('source', {
         src: URL.createObjectURL(new Blob([data.buffer], { type: 'video/mp4' })),
         type: 'video/mp4',
         'data-name': name,
       }));
-      previewEl.append(video);
+      previewEl.append(videoEl);
+      const downloadButtonEl = createTag('button', {}, 'Download');
+      previewEl.append(downloadButtonEl);
+      
     } else {
       alert('You need to provide a file');
     }
