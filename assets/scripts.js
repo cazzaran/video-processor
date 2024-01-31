@@ -91,7 +91,7 @@ function init() {
           if (progressBar) progressBar.style.width = `${Math.floor(progress * 100)}%`;
         });
         await ffmpeg.load({
-          coreURL: '/assets/core/package/dist/umd/ffmpeg-core.js',
+          coreURL: './assets/core/package/dist/umd/ffmpeg-core.js',
         });
       }
       
