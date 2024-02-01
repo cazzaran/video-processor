@@ -46,16 +46,11 @@ function createTag(tag, attributes, html) {
   return el;
 }
 
-function setPreview(type, buffer, name) {
-
-}
-
 function init() {
   const formEl = document.querySelector('#upload-pane');
   const uploadEl = formEl.querySelector('#upload');
   const dropzoneEl = formEl.querySelector('#dropzone');
   const previewEl = document.querySelector('#preview-pane');
-  const runButtonEl = document.querySelector('#run');
   const dialogEl = document.querySelector('dialog');
   
   uploadEl.addEventListener('change', async (e) => {
@@ -67,11 +62,7 @@ function init() {
     dropzoneEl.classList.add('flatten');
     const filename = e.target.files[0].name.split(/(\\|\/)/g).pop();
     filenameEl.innerHTML = (filename.length > 15) ? `${filename.substring(0, 13)}...` : filename;
-  });
-
-  runButtonEl.addEventListener('click', async (e) => {
-    e.preventDefault();
-    const uploadEl = formEl.querySelector('#upload');
+  
     if (uploadEl.files && uploadEl.files[0]) {
       dialogEl.showModal();
       const file = uploadEl.files[0];
@@ -133,7 +124,6 @@ function init() {
 
 
   });
-  runButtonEl.removeAttribute('disabled');
 }
 
 window.addEventListener('load', (event) => {

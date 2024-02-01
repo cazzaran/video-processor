@@ -9,6 +9,7 @@
 :root {
   font-family: "Raleway", helvetica, ubuntu, roboto, noto, sans-serif;
   --default-width: 400px;
+  --default-height: 100%;
 }
 
 body {
@@ -37,9 +38,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
-  height: 100%;
+  height: var(--default-height);
 }
 
 #upload-pane {
@@ -47,6 +47,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
 #upload-pane {
@@ -130,29 +131,17 @@ button {
   text-align: center;
 }
 
-button {
-  appearance: none;
-  padding: 12px;
-  border: 0;
-  border-radius: 7px;
-  background-color: white;
-  font-family: "Raleway", helvetica, ubuntu, roboto, noto, sans-serif;
-  color: #eee;
-  background-color: #343456;
-}
-
 #preview-pane {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: var(--default-width);
+  height: 70%;
 }
 
 #preview-pane video {
   position: relative;
-  width: 100%;
+  height: 100%;
 }
 
 #download {
@@ -192,13 +181,11 @@ dialog .progress {
   background-size: 4rem 4rem;
   animation: progress 3s linear infinite;
   transition: width 3s linear;
+  border: 0;
 }
 
 dialog::backdrop {
-  background-image: linear-gradient(
-    lightgray, 
-    darkgray
-  );
+  background-color: #fff;
   opacity: 0.75;
 }
 
@@ -214,6 +201,6 @@ footer {
 }
 
 footer img {
-  height: 25px;
+  height: 15px;
   margin-right: 25px;
 }
