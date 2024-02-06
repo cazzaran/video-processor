@@ -19,7 +19,7 @@ body {
   background-color: #fff;
 }
 
-@media (width >= 900px) {
+@media (width >= 768px) {
   body {
     height: 400px;
   }
@@ -39,7 +39,7 @@ body {
 }
 
 
-@media (width >= 900px) {
+@media (width >= 768px) {
   #vp-app {
     align-items: center;
     justify-content: flex-start;
@@ -52,7 +52,7 @@ h1 {
 }
 
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   h1 {
     display: block;
     font-size: 30px;  
@@ -68,7 +68,7 @@ h1 {
   height: 100%;
 }
 
-@media (width >= 900px) {
+@media (width >= 768px) {
   #upload-pane {
     width: 400px;
     height: unset;
@@ -85,7 +85,7 @@ h1 {
   margin: 16px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   #dropzone {
     position: relative;
     width: var(--default-width);
@@ -111,7 +111,7 @@ h1 {
   content: 'Tap to upload a video';
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   #dropzone label::before {
     content: 'Click to upload a video or drag one here.';
   }
@@ -209,7 +209,7 @@ footer img {
   margin-right: 25px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   footer {
     justify-content: right;
     padding: 5px;
