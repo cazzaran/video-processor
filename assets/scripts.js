@@ -59,7 +59,6 @@ function init() {
     dropzoneEl.querySelector('label').classList.add('hide');
     const filenameEl = dropzoneEl.querySelector('#filename');
     filenameEl.classList.add('show');
-    dropzoneEl.classList.add('flatten');
     const filename = e.target.files[0].name.split(/(\\|\/)/g).pop();
     filenameEl.innerHTML = (filename.length > 15) ? `${filename.substring(0, 13)}...` : filename;
   

@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <script src="./assets/ffmpeg/package/dist/umd/ffmpeg.js"></script>
   <script src="./assets/util/package/dist/umd/index.js"></script>
   <script src="./assets/scripts.js"></script>
@@ -12,9 +14,7 @@
     <h1>Video Processor</h1>
     <form id="upload-pane" data-status="upload" aria-hidden="false">
       <div id="dropzone" data-status="upload">
-        <label>
-          <p>Click to upload a video or drag one here.</p>
-        </label>
+        <label for="upload"></label>
         <input id="upload" type="file" name="upload">
         </span>
         <span id="filename">No File Selected</span>
