@@ -66,7 +66,7 @@ function init() {
       dialogEl.showModal();
       const file = uploadEl.files[0];
       const queryParams = new URLSearchParams(window.location.search)
-      const bitrate = queryParams.get('bitrate') || 10000;
+      const bitrate = queryParams.get('bitrate') || 1800;
       const { name, size } = file;
       const progressBarEl = dialogEl.querySelector('.progress');
       // eslint-disable-next-line no-undef
